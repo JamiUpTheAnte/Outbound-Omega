@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsubscribed</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if already_unsubscribed %}
+            <div class="icon">✓</div>
+            <h1>Already Unsubscribed</h1>
+            <p>You have already been unsubscribed from our mailing list.</p>
+            <p>You will not receive any further emails from us.</p>
+        {% else %}
+            <div class="icon">✓</div>
+            <h1>Successfully Unsubscribed</h1>
+            <p>You have been successfully unsubscribed from our mailing list.</p>
+            <p>You will not receive any further emails from us. We're sorry to see you go!</p>
+        {% endif %}
+    </div>
+</body>
+</html>
