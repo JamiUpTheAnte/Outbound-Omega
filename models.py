@@ -320,7 +320,7 @@ class Activity(db.Model):
     lead_id = db.Column(db.Integer, db.ForeignKey('leads.id'), nullable=False)
     type = db.Column(db.String(100), nullable=False, index=True)
     # Types: email_sent, email_opened, reply, note, audit_form_sent, audit_form_completed, status_change
-    metadata = db.Column(db.Text)  # JSON string
+    activity_metadata = db.Column(db.Text)  # JSON string (renamed from 'metadata' to avoid SQLAlchemy conflict)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
 
     # Relationships
@@ -331,6 +331,6 @@ class Activity(db.Model):
             'id': self.id,
             'lead_id': self.lead_id,
             'type': self.type,
-            'metadata': json.loads(self.metadata) if self.metadata else None,
+            'metadata': json.loads(self.activity_metadata) if self.activity_metadata else None,
             'created_at': self.created_at.isoformat() if self.created_at else None
         }

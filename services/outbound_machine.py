@@ -158,7 +158,7 @@ class OutboundMachine:
                     activity = Activity(
                         lead_id=lead.id,
                         type='email_sent',
-                        metadata=json.dumps({
+                        activity_metadata=json.dumps({
                             'subject': email_content['subject'],
                             'from': from_address,
                             'sequence_step': step.step_order

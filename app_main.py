@@ -352,7 +352,7 @@ def create_app(config_name='default'):
             activity = Activity(
                 lead_id=lead.id,
                 type='status_change',
-                metadata=json.dumps({
+                activity_metadata=json.dumps({
                     'old_status': old_status,
                     'new_status': lead.status
                 })
@@ -613,7 +613,7 @@ def create_app(config_name='default'):
         activity = Activity(
             lead_id=lead.id,
             type=data['type'],
-            metadata=json.dumps(data.get('metadata', {}))
+            activity_metadata=json.dumps(data.get('metadata', {}))
         )
 
         db.session.add(activity)
